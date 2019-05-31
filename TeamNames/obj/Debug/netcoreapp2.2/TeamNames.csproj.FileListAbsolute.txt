@@ -1,0 +1,14 @@
+C:\code\APIs\TeamNames\TeamNames\bin\Debug\netcoreapp2.2\TeamNames.deps.json
+C:\code\APIs\TeamNames\TeamNames\bin\Debug\netcoreapp2.2\TeamNames.runtimeconfig.json
+C:\code\APIs\TeamNames\TeamNames\bin\Debug\netcoreapp2.2\TeamNames.runtimeconfig.dev.json
+C:\code\APIs\TeamNames\TeamNames\bin\Debug\netcoreapp2.2\TeamNames.dll
+C:\code\APIs\TeamNames\TeamNames\bin\Debug\netcoreapp2.2\TeamNames.pdb
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.csprojAssemblyReference.cache
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.csproj.CoreCompileInputs.cache
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.RazorAssemblyInfo.cache
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.RazorAssemblyInfo.cs
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.AssemblyInfoInputs.cache
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.AssemblyInfo.cs
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.RazorTargetAssemblyInfo.cache
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.dll
+C:\code\APIs\TeamNames\TeamNames\obj\Debug\netcoreapp2.2\TeamNames.pdb
