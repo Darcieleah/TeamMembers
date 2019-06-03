@@ -14,6 +14,7 @@ function consoleMessage(){
     console.log("name has been submitted");
 }
 
+
 // function addName(name){
 //     add name to database
 // }
