@@ -8,7 +8,7 @@ namespace TeamNames.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesObjectControllerController : ControllerBase
+    public class ValuesController : ControllerBase
     {
         // GET api/values
         [HttpGet]
