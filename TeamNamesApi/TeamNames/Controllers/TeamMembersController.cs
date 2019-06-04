@@ -10,7 +10,7 @@ namespace TeamNames.Controllers
     public class TeamMembersController : ControllerBase
     {
         //POST
-        
+        //api/teammembers
         [HttpPost]
         public void Post([FromBody] MemberNameRequest nameRequest)
         {
