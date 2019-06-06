@@ -4,38 +4,27 @@
 
 
 //takes in user input in name field
-const form = document.getElementById('name');
-const FD = new FormData(form);
 
-
-// //this console logs the name passed in when you click save
-// function consoleMessage(){
-//     console.log(form.value);
-//     };
-
-// function postName(){
-//     $.ajax({
-//         type: "POST",
-//         url: ,
-//         contentType: "application/json",
-//         data: JSON.stringify(FD)s
-//     });
-//     console.log("post name function");
-// }
+const form = document.getElementById('nameForm');
+const nameField = document.getElementById('name');
 
 function postName(){
-var data = JSON.stringify(FD);
-const Http = new XMLHttpRequest();
-const url='https://localhost:44366/api/teammembers';
-Http.open("POST", url);
-Http.setRequestHeader("Content-Type", "application/json");
-Http.send(data);
-console.log("post name function");
+    const name = nameField.value;
+    const data = {
+        Name: name
+    };
+    const request = new XMLHttpRequest();
+    const url='https://localhost:44366/api/teammembers';
+    request.open("POST", url);
+    request.setRequestHeader("Accept", "application/json");
+    request.setRequestHeader("Content-type", "application/json")
+    request.send(JSON.stringify(data));
 }
 
-
-
-
+//target input elemet
+//create object with field of name
+//value of input value
+//send that object (stringify)
 
 //convert text to json in order to POST
 //JSON.stringify()
