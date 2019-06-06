@@ -7,7 +7,7 @@ namespace TeamNames.Models
 {
     public class MemberNameRequest
     {
-        public int MemberId { get; set; }
+        //public int MemberId { get; set; }
         public string Name { get; set; }
     }
 }

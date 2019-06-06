@@ -29,7 +29,6 @@ const Http = new XMLHttpRequest();
 const url='https://localhost:44366/api/teammembers';
 Http.open("POST", url);
 Http.setRequestHeader("Content-Type", "application/json");
-Http.setRequestHeader("Access-Control-Allow-Origin", "*")
 Http.send(data);
 console.log("post name function");
 }

@@ -14,10 +14,7 @@ namespace TeamNames.Controllers
         [HttpPost]
         public void Post([FromBody] MemberNameRequest nameRequest)
         {
-            //var n = 0;
-            HttpContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            //take ID and Name entered
-            //add new MemberName 
+      
         }
     }
 
