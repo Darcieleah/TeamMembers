@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using TeamNames.Models;
 
 namespace TeamNames
 {
@@ -20,5 +21,12 @@ namespace TeamNames
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+
+
+        //method to CREATE a blog
+        public static void CreateName(string nameInput)
+        {
+            
+        }
     }
 }
