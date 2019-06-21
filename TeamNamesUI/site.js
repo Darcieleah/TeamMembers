@@ -1,13 +1,8 @@
-//POST
-
-//console.log something when form submitted
-
-
-//takes in user input in name field
 
 const form = document.getElementById('nameForm');
 const nameField = document.getElementById('name');
 
+//POST METHOD - submit a new team member name
 function postName(){
     const name = nameField.value;
     const data = {
@@ -21,17 +16,15 @@ function postName(){
     request.send(JSON.stringify(data));
 }
 
-//target input elemet
-//create object with field of name
-//value of input value
-//send that object (stringify)
+//GET METHOD - display all names and ID's in table
+function getNames(){
+    const request = new XMLHttpRequest();
+    const url='https://localhost:44366/api/teammembers';
+    request.open("GET", url, true);
+    request.setRequestHeader("Accept", "application/json");
+    request.setRequestHeader("Content-type", "application/json")
+    request.send(null)
+    console.log('get request');
+}
 
-//convert text to json in order to POST
-//JSON.stringify()
 
-//XMLHTTPrequestobject created here? send request to web server
-//read response back from web server
-//Add Name function
-// onsubmit in HTML file performs add name function
-//use AJAX
-//send (string)

@@ -16,15 +16,15 @@ namespace TeamNames.Services
                 var saveAdd = db.SaveChanges();
             }
         }
-        //public void ViewAllMembers()
-        //{
-        //    using (var db = new MembersContext())
-        //    {
-        //        foreach (var name in db.TeamNames)
-        //        {
-        //            //display in table
-        //        }
-        //    }
-        //}
+        public void ViewAllMembers()
+        {
+            using (var db = new MembersContext())
+            {
+                foreach (var name in db.TeamNames)
+                {
+                    Console.WriteLine(name.Name);
+                }
+            }
+        }
     }
 }

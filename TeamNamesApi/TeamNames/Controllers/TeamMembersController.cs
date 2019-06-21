@@ -18,6 +18,15 @@ namespace TeamNames.Controllers
             var memberService = new MembersService();
             memberService.CreateMember(nameRequest);
         }
+
+        //GET
+        //api/teammembers
+        [HttpGet]
+        public void Get()
+        {
+            //var memberService = new MembersService();
+            //memberService.ViewAllMembers();
+        }
     }
 
 }
