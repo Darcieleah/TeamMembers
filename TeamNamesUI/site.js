@@ -22,10 +22,44 @@ function getNames(){
     const url='https://localhost:44366/api/teammembers';
     request.open("GET", url, true);
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Content-type", "application/json");
+    request.setRequestHeader("Content-type", "application/json"); 
+    request.onreadystatechange = () => {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            console.log(request.response);
+        }
+    }
+    
     request.send(null);
+}
+
+
+
+    // request.onload = () => {
+    //     if (request.status === 200) {
+    //       console.log("Success"); // So extract data from json and create table
+          
+    //       //Extracting data
+    //       var name = JSON.parse(request.response).value.name;
+    //       var memberid = JSON.parse(request.response).value.id;
+          
+    //       //Creating table
+    //       var table="<table>";
+    //       table+="<tr><td>Member ID</td><td>Name</td></tr>"; 
+    //       table+="<tr><td>"+memberid+"</td><td>"+name+"</td></tr>";
+    //       table+="</table>";
+       
+    //       //Showing the table inside table
+    //       document.getElementById("mydiv").innerHTML = table;   
+    //     } 
+    //   };
+       
+    //   request.onerror = () => {
+    //     console.log("error")
+    //   };
+
+
     // console.log('get request');
 
-}
+
 
 

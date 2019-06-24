@@ -29,5 +29,4 @@ namespace TeamNames.Controllers
             return memberService.ViewAllMembers();
         }
     }
-
 }
