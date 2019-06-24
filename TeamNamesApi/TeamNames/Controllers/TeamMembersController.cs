@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using TeamNames.Models;
 using TeamNames.Services;
 
@@ -22,10 +23,10 @@ namespace TeamNames.Controllers
         //GET
         //api/teammembers
         [HttpGet]
-        public void Get()
+        public IEnumerable<MemberNameRequest> Get()
         {
-            //var memberService = new MembersService();
-            //memberService.ViewAllMembers();
+            var memberService = new MembersService();
+            return memberService.ViewAllMembers();
         }
     }
 

@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using TeamNames.Models;
 
 namespace TeamNames.Services
@@ -16,15 +18,19 @@ namespace TeamNames.Services
                 var saveAdd = db.SaveChanges();
             }
         }
-        public void ViewAllMembers()
+        public IEnumerable <MemberNameRequest> ViewAllMembers()
         {
             using (var db = new MembersContext())
             {
-                foreach (var name in db.TeamNames)
-                {
-                    Console.WriteLine(name.Name);
-                }
+                return db.TeamNames.ToList();
             }
+            //{
+            //    foreach (var name in db.TeamNames)
+            //    {
+            //        Debug.WriteLine(name.Name);
+
+                //    }
+
         }
     }
 }

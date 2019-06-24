@@ -16,15 +16,16 @@ function postName(){
     request.send(JSON.stringify(data));
 }
 
-//GET METHOD - display all names and ID's in table
+//GET METHOD - display all names
 function getNames(){
     const request = new XMLHttpRequest();
     const url='https://localhost:44366/api/teammembers';
     request.open("GET", url, true);
     request.setRequestHeader("Accept", "application/json");
-    request.setRequestHeader("Content-type", "application/json")
-    request.send(null)
-    console.log('get request');
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(null);
+    // console.log('get request');
+
 }
 
 
