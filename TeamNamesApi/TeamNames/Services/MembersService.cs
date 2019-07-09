@@ -24,12 +24,18 @@ namespace TeamNames.Services
             {
                 return db.TeamNames.ToList();
             }
-            //{
-            //    foreach (var name in db.TeamNames)
-            //    {
-            //        Debug.WriteLine(name.Name);
 
-                //    }
+        }
+
+       public static void DeleteMember(int deleteMemberId)
+        {
+            using (var db = new MembersContext())
+            {
+                var selectedMember = db.TeamNames
+                .Where(m => m.Id == deleteMemberId).Single();
+                db.TeamNames.Remove(selectedMember);
+                db.SaveChanges();
+            }
 
         }
     }

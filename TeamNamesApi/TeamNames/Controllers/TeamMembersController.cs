@@ -28,5 +28,16 @@ namespace TeamNames.Controllers
             var memberService = new MembersService();
             return memberService.ViewAllMembers();
         }
+
+        //DELETE
+        //api/teammembers/1
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+            var memberService = new MembersService();
+          MembersService.DeleteMember(id);
+
+        }
+
     }
 }
