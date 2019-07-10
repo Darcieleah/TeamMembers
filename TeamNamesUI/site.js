@@ -41,7 +41,6 @@ function getNames(){
 
 //DELETE METHOD - delete name by ID
 function deleteName(id){
-  console.log(id);
   const request = new XMLHttpRequest();
     const url=`https://localhost:44366/api/teammembers/${id}`;
     request.open("DELETE", url, true);
