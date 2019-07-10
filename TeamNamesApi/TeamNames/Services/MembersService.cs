@@ -27,7 +27,7 @@ namespace TeamNames.Services
 
         }
 
-       public static void DeleteMember(int deleteMemberId)
+       public void DeleteMember(int deleteMemberId)
         {
             using (var db = new MembersContext())
             {

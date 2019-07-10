@@ -34,8 +34,9 @@ namespace TeamNames.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+
             var memberService = new MembersService();
-          MembersService.DeleteMember(id);
+            memberService.DeleteMember(id);
 
         }
 
