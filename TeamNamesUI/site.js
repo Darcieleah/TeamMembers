@@ -53,6 +53,48 @@ function deleteName(id){
     request.send(null);
 }
 
+const newNameField = document.getElementById('name');
+
+//PATCH METHOD - amend name by ID
+function updateName(id){
+  console.log(`${row.id}`);
+  const newName = newNameField.value;
+  const data = {
+    Name: newName
+  };
+  const request = new XMLHttpRequest();
+  const url=`https://localhost:44366/api/teammembers/${id}`;
+  request.open("PATCH", url, true);
+  request.setRequestHeader("Accept", "application/json");
+  request.setRequestHeader("Content-type", "application/json")
+  request.send(JSON.stringify(data));
+  request.onreadystatechange = function() {
+    if (request.readyState == XMLHttpRequest.DONE) {
+      document.getElementById("updateForm").reset();
+        getNames();
+    } 
+  }
+}
+
+
+
+
+var fr = document.getElementById("updateForm");
+
+function showUpdateInput(entityId){
+  console.log(entityId);
+  if (fr.classList.contains('hidden')) {
+    fr.classList.remove('hidden');
+  }
+}
+
+//data attributes
+//how can I make form aware of the id of entity it's editing
+
+
+  
+
+
 
 function jsonIntoTable(json, classes) {
   //1 column per property - each object in array has same properties of name and id
@@ -81,7 +123,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button type="button" onclick = deleteName(${row.id})>Delete</button></td></tr>`;
+      bodyRows += `<td><button type="button" onclick = deleteName(${row.id})>Delete</button><button type="button" onclick = showUpdateInput(${row.id})>TEST show edit</button></td></tr>`;
     });
   
     return '<table class="' +

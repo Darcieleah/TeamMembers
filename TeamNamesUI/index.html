@@ -1,24 +1,39 @@
 <html lang="en_GB">
-    <head>
-        <meta charset="utf-8">
-        <title>Team Names</title>
-    </head>
-    <body>
-        <p>Please add new team member</p>
 
-        <form method="POST" id= "nameForm">
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="Name">
-            </div>
-            <div class="button">
-                <button type="button" onclick = postName()>Save</button>
-                <button type="button" onclick = getNames()>View All</button>
-                </div>
-        </form>       
+<head>
+    <link rel="stylesheet" type="text/css" href="styling.css">
+    <meta charset="utf-8">
+    <title>Team Names</title>
+</head>
 
-        <div id="tableGoesHere"></div>
-    </body>
-    <script src="site.js" type="text/javascript"></script>
-</html> 
+<body>
+    <p>Please add new team member</p>
 
+    <form method="POST" id="nameForm">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name">
+        </div>
+        <div class="button">
+            <button type="button" onclick=postName()>Save</button>
+            <button type="button" onclick=getNames()>View All</button>
+        </div>
+    </form>
+    
+    
+    <form method="PATCH" id="updateForm" class="hidden">
+            <p>Please enter a new name for this team member</p>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name">
+        </div>
+        <div class="button">
+            <button type="button" onclick=updateName()>Save</button>
+        </div>
+    </form>
+
+    <div id="tableGoesHere"></div>
+</body>
+<script src="site.js" type="text/javascript"></script>
+
+</html>
