@@ -56,8 +56,8 @@ function deleteName(id){
 const newNameField = document.getElementById('name');
 
 //PATCH METHOD - amend name by ID
-function updateName(id){
-  console.log(`${row.id}`);
+function updateName(){
+  id = fr.getAttribute('data-row-id');
   const newName = newNameField.value;
   const data = {
     Name: newName
@@ -86,6 +86,7 @@ function showUpdateInput(entityId){
   if (fr.classList.contains('hidden')) {
     fr.classList.remove('hidden');
   }
+  fr.setAttribute("data-row-id", entityId);
 }
 
 //data attributes
