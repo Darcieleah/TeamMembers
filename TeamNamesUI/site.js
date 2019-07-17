@@ -53,7 +53,7 @@ function deleteName(id){
     request.send(null);
 }
 
-const newNameField = document.getElementById('name');
+const newNameField = document.getElementById('newname');
 
 //PATCH METHOD - amend name by ID
 function updateName(){
@@ -62,6 +62,7 @@ function updateName(){
   const data = {
     Name: newName
   };
+  console.log(data);
   const request = new XMLHttpRequest();
   const url=`https://localhost:44366/api/teammembers/${id}`;
   request.open("PATCH", url, true);
