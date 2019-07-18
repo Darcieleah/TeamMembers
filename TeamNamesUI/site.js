@@ -59,9 +59,11 @@ const newNameField = document.getElementById('newname');
 function updateName(){
   id = fr.getAttribute('data-row-id');
   const newName = newNameField.value;
-  const data = {
-    Name: newName
-  };
+  const data = [{
+    "op": "add",
+    "path": "/name",
+    "value": newName
+  }];
   console.log(data);
   const request = new XMLHttpRequest();
   const url=`https://localhost:44366/api/teammembers/${id}`;
@@ -72,13 +74,11 @@ function updateName(){
   request.onreadystatechange = function() {
     if (request.readyState == XMLHttpRequest.DONE) {
       document.getElementById("updateForm").reset();
+      fr.classList.add('hidden');
         getNames();
     } 
   }
 }
-
-
-
 
 var fr = document.getElementById("updateForm");
 
@@ -89,14 +89,6 @@ function showUpdateInput(entityId){
   }
   fr.setAttribute("data-row-id", entityId);
 }
-
-//data attributes
-//how can I make form aware of the id of entity it's editing
-
-
-  
-
-
 
 function jsonIntoTable(json, classes) {
   //1 column per property - each object in array has same properties of name and id
@@ -125,7 +117,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button type="button" onclick = deleteName(${row.id})>Delete</button><button type="button" onclick = showUpdateInput(${row.id})>TEST show edit</button></td></tr>`;
+      bodyRows += `<td><button type="button" onclick = deleteName(${row.id})>Delete</button><div class="divider"/><button type="button" onclick = showUpdateInput(${row.id})>Edit</button></td></tr>`;
     });
   
     return '<table class="' +
