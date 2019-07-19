@@ -117,7 +117,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button type="button" onclick = deleteName(${row.id})>Delete</button><div class="divider"/><button type="button" onclick = showUpdateInput(${row.id})>Edit</button></td></tr>`;
+      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete</button><button class="btn" type="button" onclick = showUpdateInput(${row.id})>Edit</button></td></tr>`;
     });
   
     return '<table class="' +

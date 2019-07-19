@@ -1,3 +1,26 @@
+html {
+  font-family: sans-serif;
+}
 .hidden{
     display: none;
   }
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+form label {
+  display: inline
+}
+.btn {
+  background-color: white;
+  color: black;;
+  border: 2px solid purple;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition-duration: 0.3s;
+}
+.btn:hover {
+  background-color: purple;
+  color: white;
+}
