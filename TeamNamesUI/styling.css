@@ -1,5 +1,5 @@
 html {
-  font-family: sans-serif;
+  font-family: georgia;
 }
 .hidden{
     display: none;
@@ -19,8 +19,12 @@ form label {
   cursor: pointer;
   padding: 5px 10px;
   transition-duration: 0.3s;
+  font-family: Georgia;
 }
 .btn:hover {
   background-color: purple;
   color: white;
+}
+button:first-of-type {
+  margin-right: 5px;
 }
