@@ -1,7 +1,6 @@
 html {
-  font-family: georgia;
+  font-family: 'Roboto Slab', serif;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 *,*:before,*:after{
   box-sizing: inherit;
@@ -12,10 +11,14 @@ table {
   th {
     padding: 0.5em; 
     text-align: left;
+    font-weight: 700;
+    
   }
   td {
     padding: 0.5em;  
-    border: 1px solid #CCC;
+    border: 2px solid #000000;
+    
+    
   }
   button:first-of-type {
     margin-right: 5px;
@@ -35,14 +38,15 @@ form label {
   display: inline
 }
 .btn {
-  background-color: white;
+  background-color: rgb(247, 222, 253);
   color: black;;
   border: 2px solid #8D28A4;
   border-radius: 3px;
   cursor: pointer;
   padding: 5px 10px;
   transition-duration: 0.3s;
-  font-family: Georgia;
+  font-family: 'Roboto Slab', serif;
+  
 }
 .btn:hover {
   background-color: #8D28A4;
