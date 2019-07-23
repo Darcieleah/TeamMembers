@@ -18,6 +18,7 @@ function postName(){
       if (request.readyState == XMLHttpRequest.DONE) {
         document.getElementById("nameForm").reset();
           getNames();
+          toggleAddInput();
       } 
     }
   }
@@ -82,12 +83,22 @@ function updateName(){
 
 var fr = document.getElementById("updateForm");
 
-function showUpdateInput(entityId){
+function toggleUpdateInput(entityId){
   console.log(entityId);
   if (fr.classList.contains('hidden')) {
     fr.classList.remove('hidden');
+  } else {
+    fr.classList.add('hidden');
   }
   fr.setAttribute("data-row-id", entityId);
+}
+
+function toggleAddInput(){
+  if (form.classList.contains('hidden')) {
+    form.classList.remove('hidden');
+  } else {
+    form.classList.add('hidden');
+  }
 }
 
 function jsonIntoTable(json, classes) {
@@ -117,7 +128,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = showUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>`;
+      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>`;
     });
   
     return '<table class="' +

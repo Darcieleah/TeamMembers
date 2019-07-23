@@ -9,7 +9,7 @@ table {
     border-collapse: collapse;
   }
   th {
-    padding: 0.5em; 
+    padding-top: 1em; 
     text-align: left;
     font-weight: 700;
     
@@ -51,4 +51,8 @@ form label {
 .btn:hover {
   background-color: #8D28A4;
   color: white;
+}
+.page-title {
+  font-weight: 700;
+  font-size: 20;
 }

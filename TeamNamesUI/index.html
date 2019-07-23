@@ -9,16 +9,20 @@
 </head>
 
 <body>
-    <p>Please add new team member</p>
+    <p class="page-title">Team Members</p>
+    <p>What would you like to do?</p>
+    <button class="btn" type="button" onclick=toggleAddInput()>Add a Member</button>
+    <button class="btn" type="button" onclick=getNames()>View All Members</button>
 
-    <form method="POST" id="nameForm">
+    <form method="POST" id="nameForm" class="hidden">
+            <p>Please add new team member</p>
         <div>
             <label for="name">Name:</label>
             <input type="text" id="name" name="Name">
         </div>
-        <div class="buttons">
+        <div class="buttons">   
             <button class="btn" type="button" onclick=postName()>Save</button>
-            <button class="btn" type="button" onclick=getNames()>View All</button>
+            
         </div>
     </form>
     
