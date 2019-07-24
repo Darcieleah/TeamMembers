@@ -101,6 +101,17 @@ function toggleAddInput(){
   }
 }
 
+var dbtn = document.getElementById("deleteButton");
+
+function toggleMultipleDelete(){
+  var chkbx = document.getElementById("myCheck");
+  if (chkbx.checked == true){
+    dbtn.classList.remove('hidden');
+  }else{
+    dbtn.classList.add('hidden');
+  } 
+}
+
 function jsonIntoTable(json, classes) {
   //1 column per property - each object in array has same properties of name and id
   //this takes property names (keys) from first object and stores in cols
@@ -128,7 +139,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button></td></tr>`;
+      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><input type="checkbox" id="myCheck" onclick="toggleMultipleDelete()"></td></tr>`;
     });
   
     return '<table class="' +

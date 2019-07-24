@@ -20,7 +20,7 @@ table {
     
     
   }
-  button:first-of-type {
+  button {
     margin-right: 5px;
   }
   tr:nth-child(2n+2) {
