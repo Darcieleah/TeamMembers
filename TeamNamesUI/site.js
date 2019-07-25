@@ -54,6 +54,8 @@ function deleteName(id){
     request.send(null);
 }
 
+//delete from checkboxes - for each id of checked row, call deletename function
+
 const newNameField = document.getElementById('newname');
 
 //PATCH METHOD - amend name by ID
@@ -101,16 +103,44 @@ function toggleAddInput(){
   }
 }
 
-var dbtn = document.getElementById("deleteButton");
+var deleteBtn = document.getElementById("deleteButton");
 
-function toggleMultipleDelete(){
-  var chkbx = document.getElementById("myCheck");
-  if (chkbx.checked == true){
-    dbtn.classList.remove('hidden');
-  }else{
-    dbtn.classList.add('hidden');
+function toggleMultipleDelete(entityId){
+  console.log(entityId);
+  var checkBoxes = document.getElementsByClassName('myCheck');
+  for(var i = 0; i < checkBoxes.length; i++)
+  if (checkBoxes[i].checked){
+    deleteBtn.classList.remove('hidden');
+  // }else{
+     
+    // dbtn.classList.add('hidden');
+    } 
   } 
+
+var membersToDelete = []; 
+//this is currently adding a number of items equal to the number of items already in the array
+//need to get it to only add the item ONCE
+function editMembersToDelete(entityId) {
+  var index = membersToDelete.findIndex(x => x === entityId)
+  if (index === -1){
+    membersToDelete.push(entityId);
+  } else {
+    membersToDelete.splice(index,1);
+  }
+  console.log(rowsToDelete);
 }
+
+
+ 
+
+  //rows to delete function
+  //for each box checked, add to array (if not already in)
+  //if already in array, remove it (for uncheck)
+  //if anything in the array display delete button
+  //otherwise hide
+
+
+
 
 function jsonIntoTable(json, classes) {
   //1 column per property - each object in array has same properties of name and id
@@ -139,7 +169,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><input type="checkbox" id="myCheck" onclick="toggleMultipleDelete()"></td></tr>`;
+      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><input type="checkbox" class="myCheck" onclick="editMembersToDelete(${row.id})"></td></tr>`;
     });
   
     return '<table class="' +
