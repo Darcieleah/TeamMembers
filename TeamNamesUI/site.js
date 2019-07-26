@@ -103,32 +103,30 @@ function toggleAddInput(){
   }
 }
 
-var deleteBtn = document.getElementById("deleteButton");
-
-function toggleMultipleDelete(entityId){
-  console.log(entityId);
-  var checkBoxes = document.getElementsByClassName('myCheck');
-  for(var i = 0; i < checkBoxes.length; i++)
-  if (checkBoxes[i].checked){
-    deleteBtn.classList.remove('hidden');
-  // }else{
-     
-    // dbtn.classList.add('hidden');
-    } 
-  } 
-
 var membersToDelete = []; 
-//this is currently adding a number of items equal to the number of items already in the array
-//need to get it to only add the item ONCE
+
 function editMembersToDelete(entityId) {
   var index = membersToDelete.findIndex(x => x === entityId)
   if (index === -1){
     membersToDelete.push(entityId);
   } else {
-    membersToDelete.splice(index,1);
+    membersToDelete.splice(index,1);  
   }
-  console.log(rowsToDelete);
+  console.log(membersToDelete);
+  console.log(membersToDelete.length);
+  toggleDeleteSelected();
 }
+var deleteBtn = document.getElementById("deleteButton");
+
+function toggleDeleteSelected(){
+  if (membersToDelete.length <= 0) {
+    deleteBtn.classList.add('hidden');
+  } else {
+    deleteBtn.classList.remove('hidden');
+  }
+}
+
+
 
 
  
