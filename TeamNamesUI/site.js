@@ -54,7 +54,11 @@ function deleteName(id){
     request.send(null);
 }
 
-//delete from checkboxes - for each id of checked row, call deletename function
+//DELETE BULK METHOD - delete names by array of IDs
+function deleteSelected(){
+  membersToDelete.forEach(deleteName);
+  membersToDelete.length = 0;
+}
 
 const newNameField = document.getElementById('newname');
 
@@ -113,7 +117,6 @@ function editMembersToDelete(entityId) {
     membersToDelete.splice(index,1);  
   }
   console.log(membersToDelete);
-  console.log(membersToDelete.length);
   toggleDeleteSelected();
 }
 var deleteBtn = document.getElementById("deleteButton");
@@ -125,20 +128,6 @@ function toggleDeleteSelected(){
     deleteBtn.classList.remove('hidden');
   }
 }
-
-
-
-
- 
-
-  //rows to delete function
-  //for each box checked, add to array (if not already in)
-  //if already in array, remove it (for uncheck)
-  //if anything in the array display delete button
-  //otherwise hide
-
-
-
 
 function jsonIntoTable(json, classes) {
   //1 column per property - each object in array has same properties of name and id

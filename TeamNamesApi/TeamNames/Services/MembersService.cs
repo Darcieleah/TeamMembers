@@ -39,6 +39,18 @@ namespace TeamNames.Services
             }
 
         }
+
+        public void DeleteMembersBulk(int [] deleteBulkMemberIds)
+        {
+            using (var db = new MembersContext())
+            {
+                var selectedBulkMembers = db.TeamNames
+                .Where(m => deleteBulkMemberIds.Contains(m.Id)).ToList();
+                db.TeamNames.RemoveRange(selectedBulkMembers);
+                db.SaveChanges();
+            }
+
+        }
         public void AmendMember(int amendMemberID, string nameUpdate)
         {
             using (var db = new MembersContext())
