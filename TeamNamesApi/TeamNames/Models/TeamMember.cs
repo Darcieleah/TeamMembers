@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TeamNames.Models
 {
-    public class MemberNameRequest
+    public class TeamMember
     {
         //public int MemberId { get; set; }
         public string Name { get; set; }

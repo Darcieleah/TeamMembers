@@ -58,6 +58,7 @@ function deleteName(id){
 function deleteSelected(){
   membersToDelete.forEach(deleteName);
   membersToDelete.length = 0;
+  toggleDeleteSelected();
 }
 
 const newNameField = document.getElementById('newname');

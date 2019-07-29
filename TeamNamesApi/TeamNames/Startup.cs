@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using TeamNames.Models;
+using TeamNames.Services;
 
 namespace TeamNames
 {
@@ -39,6 +40,10 @@ namespace TeamNames
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // dependency injection
+            services.AddScoped<IMembersService, MembersService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

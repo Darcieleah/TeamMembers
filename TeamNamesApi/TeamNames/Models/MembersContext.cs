@@ -5,7 +5,7 @@ namespace TeamNames.Models
 {
     public class MembersContext : DbContext
     {
-        public DbSet<MemberNameRequest> TeamNames { get; set; }
+        public DbSet<TeamMember> TeamNames { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

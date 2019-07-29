@@ -9,17 +9,17 @@ using TeamNames.Models;
 
 namespace TeamNames.Services
 {
-    public class MembersService
+    public class MembersService : IMembersService
     {
-        public void CreateMember(MemberNameRequest nameRequest)
+        public void CreateMember(TeamMember nameRequest)
         {
             using (var db = new MembersContext())
             {
-                db.TeamNames.Add(new MemberNameRequest { Name = nameRequest.Name});
+                db.TeamNames.Add(new TeamMember { Name = nameRequest.Name});
                 var saveAdd = db.SaveChanges();
             }
         }
-        public IEnumerable <MemberNameRequest> ViewAllMembers()
+        public IEnumerable <TeamMember> ViewAllMembers()
         {
             using (var db = new MembersContext())
             {
@@ -62,7 +62,7 @@ namespace TeamNames.Services
             }
         }
 
-        public void PartialUpdateMember(int id, JsonPatchDocument<MemberNameRequest> patch)
+        public void PartialUpdateMember(int id, JsonPatchDocument<TeamMember> patch)
         {
             using (var db = new MembersContext())
             {

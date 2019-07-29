@@ -12,10 +12,17 @@ namespace TeamNames.Controllers
 
     public class TeamMembersController : ControllerBase
     {
+        private readonly IMembersService _membersService;
+
+        public TeamMembersController(IMembersService membersService)
+        {
+            _membersService = membersService;
+        }
+
         //POST
         //api/teammembers
         [HttpPost]
-        public void Post([FromBody] MemberNameRequest nameRequest)
+        public void Post([FromBody] TeamMember nameRequest)
         {
             var memberService = new MembersService();
             memberService.CreateMember(nameRequest);
@@ -24,10 +31,9 @@ namespace TeamNames.Controllers
         //GET
         //api/teammembers
         [HttpGet]
-        public IEnumerable<MemberNameRequest> Get()
+        public IEnumerable<TeamMember> Get()
         {
-            var memberService = new MembersService();
-            return memberService.ViewAllMembers();
+            return _membersService.ViewAllMembers();
         }
 
         //DELETE
@@ -42,7 +48,7 @@ namespace TeamNames.Controllers
         //PATCH
         //api/teammembers/1
         [HttpPatch("{id}")]
-        public void Patch(int id, [FromBody] JsonPatchDocument<MemberNameRequest> patch)
+        public void Patch(int id, [FromBody] JsonPatchDocument<TeamMember> patch)
         {
             var memberService = new MembersService();
             memberService.PartialUpdateMember(id, patch);
