@@ -24,8 +24,7 @@ namespace TeamNames.Controllers
         [HttpPost]
         public void Post([FromBody] TeamMember nameRequest)
         {
-            var memberService = new MembersService();
-            memberService.CreateMember(nameRequest);
+            _membersService.CreateMember(nameRequest);
         }
 
         //GET

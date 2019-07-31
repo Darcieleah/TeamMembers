@@ -29,17 +29,47 @@ namespace Tests
         public void Get_TeamMembersController_ReturnsAll()
         {
             // ARRANGE
+            //
             var testDarcie = new TeamMember { Name = "Darcie" };
-            _mockmembersService.Setup(ms => ms.ViewAllMembers()).Returns(new[] { testDarcie });
+            var allMembers = new[] { testDarcie };
+
+            _mockmembersService
+                .Setup(ms => ms.ViewAllMembers())
+                .Returns(allMembers);
 
             // ACT
-            _sut.Get();
+           
+            var getResult = _sut.Get();
 
             // ASSERT
 
+            Assert.AreEqual(allMembers, getResult);
+
         }
 
+        [Test]
+        public void Delete_TeamMembersController_RemoveMemberByID()
+        {
+            // ARRANGE
+            //
+            var testDarcie = new TeamMember { Name = "Darcie", Id = 1 };
+            var testJamie = new TeamMember { Name = "Jame", Id = 2 };
 
+            var allMembers = new[] { testDarcie };
+
+            _mockmembersService
+                .Setup(ms => ms.ViewAllMembers())
+                .Returns(allMembers);
+
+            // ACT
+
+            var getResult = _sut.Get();
+
+            // ASSERT
+
+            Assert.AreEqual(allMembers, getResult);
+
+        }
     }
 }
 
