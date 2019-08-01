@@ -38,10 +38,11 @@ namespace TeamNames.Controllers
         //DELETE
         //api/teammembers/1
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
-            var memberService = new MembersService();
-            memberService.DeleteMember(id);
+            _membersService.DeleteMember(id);
+            return NoContent();
+
         }
 
         //PATCH

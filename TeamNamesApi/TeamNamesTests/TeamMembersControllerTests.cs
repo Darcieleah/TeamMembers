@@ -5,8 +5,8 @@ using NUnit.Framework;
 using TeamNames.Controllers;
 using TeamNames.Services;
 using TeamNames.Models;
-
-
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Tests
 {
@@ -48,26 +48,32 @@ namespace Tests
         }
 
         [Test]
-        public void Delete_TeamMembersController_RemoveMemberByID()
+        public void Delete_ValidIDProvided_ReturnsNoContent()
         {
             // ARRANGE
             //
             var testDarcie = new TeamMember { Name = "Darcie", Id = 1 };
             var testJamie = new TeamMember { Name = "Jame", Id = 2 };
 
-            var allMembers = new[] { testDarcie };
+            var allMembers = new[] { testDarcie, testJamie };
+            var deleteMemberId = 2;
 
             _mockmembersService
-                .Setup(ms => ms.ViewAllMembers())
-                .Returns(allMembers);
+                .Setup(ms => ms.DeleteMember(deleteMemberId));
 
             // ACT
 
-            var getResult = _sut.Get();
+            IActionResult deleteResult =_sut.Delete(2);
 
-            // ASSERT
+            // ASSERT  
 
-            Assert.AreEqual(allMembers, getResult);
+            _mockmembersService.Verify(ms => ms.DeleteMember(deleteMemberId));
+
+            Assert.IsInstanceOf<NoContentResult>(deleteResult);
+
+
+
+
 
         }
     }
