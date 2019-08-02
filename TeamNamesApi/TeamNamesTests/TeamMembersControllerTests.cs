@@ -97,15 +97,31 @@ namespace Tests
             _mockmembersService.Verify(ms => ms.PartialUpdateMember(updateMemberId, jsonPatch));
 
         }
+        [Test]
+        public void Post_StringInput_VerifyPostCalled()
+        {
+            // ARRANGE
 
-        //public void PartialUpdateMember(int id, JsonPatchDocument<TeamMember> patch)
+            var newDarcie = new TeamMember { Name = "Darcie", Id = 1 };
+
+            _mockmembersService
+                .Setup(ms => ms.CreateMember(newDarcie));
+
+            // ACT
+
+            _sut.Post(newDarcie);
+
+            // ASSERT  
+
+            _mockmembersService.Verify(ms => ms. CreateMember(newDarcie));
+        }
+
+        //public void CreateMember(TeamMember nameRequest)
         //{
         //    using (var db = new MembersContext())
         //    {
-        //        var selectedMember = db.TeamNames
-        //        .Where(m => m.Id == id).Single();
-        //        patch.ApplyTo(selectedMember);
-        //        db.SaveChanges();
+        //        db.TeamNames.Add(new TeamMember { Name = nameRequest.Name });
+        //        var saveAdd = db.SaveChanges();
         //    }
         //}
     }
