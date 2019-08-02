@@ -50,8 +50,8 @@ namespace TeamNames.Controllers
         [HttpPatch("{id}")]
         public void Patch(int id, [FromBody] JsonPatchDocument<TeamMember> patch)
         {
-            var memberService = new MembersService();
-            memberService.PartialUpdateMember(id, patch);
+        
+            _membersService.PartialUpdateMember(id, patch);
 
         }
 

@@ -7,6 +7,7 @@ using TeamNames.Services;
 using TeamNames.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Tests
 {
@@ -71,11 +72,42 @@ namespace Tests
 
             Assert.IsInstanceOf<NoContentResult>(deleteResult);
 
+        }
 
+        [Test]
+        public void Patch_ValidIDProvided_VerifyPatchCalled()
+        {
+            // ARRANGE
+            
+            var testDarcie = new TeamMember { Name = "Darcie", Id = 1 };
+            var jsonPatch = new JsonPatchDocument<TeamMember>();
 
+            var allMembers = new[] { testDarcie };
+            var updateMemberId = 1;
 
+            _mockmembersService
+                .Setup(ms => ms.PartialUpdateMember(updateMemberId, jsonPatch));
+
+            // ACT
+
+            _sut.Patch(updateMemberId, jsonPatch);
+
+            // ASSERT  
+
+            _mockmembersService.Verify(ms => ms.PartialUpdateMember(updateMemberId, jsonPatch));
 
         }
+
+        //public void PartialUpdateMember(int id, JsonPatchDocument<TeamMember> patch)
+        //{
+        //    using (var db = new MembersContext())
+        //    {
+        //        var selectedMember = db.TeamNames
+        //        .Where(m => m.Id == id).Single();
+        //        patch.ApplyTo(selectedMember);
+        //        db.SaveChanges();
+        //    }
+        //}
     }
 }
 
