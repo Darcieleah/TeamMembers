@@ -163,8 +163,7 @@ function jsonIntoTable(json, classes) {
     return '<table class="' +
            classes +
            '"><thead><tr>' +
-           headerRow +
-           '</tr></thead><tbody>' +
+           headerRow + '<th>Options</th></tr></thead><tbody>' +
            bodyRows +
            '</tbody></table>';
   }

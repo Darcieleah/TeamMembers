@@ -30,7 +30,7 @@ namespace Tests
         public void Get_TeamMembersController_ReturnsAll()
         {
             // ARRANGE
-            //
+          
             var testDarcie = new TeamMember { Name = "Darcie" };
             var allMembers = new[] { testDarcie };
 
@@ -52,11 +52,7 @@ namespace Tests
         public void Delete_ValidIDProvided_ReturnsNoContent()
         {
             // ARRANGE
-            //
-            var testDarcie = new TeamMember { Name = "Darcie", Id = 1 };
-            var testJamie = new TeamMember { Name = "Jame", Id = 2 };
-
-            var allMembers = new[] { testDarcie, testJamie };
+           
             var deleteMemberId = 2;
 
             _mockmembersService
@@ -79,10 +75,8 @@ namespace Tests
         {
             // ARRANGE
             
-            var testDarcie = new TeamMember { Name = "Darcie", Id = 1 };
             var jsonPatch = new JsonPatchDocument<TeamMember>();
 
-            var allMembers = new[] { testDarcie };
             var updateMemberId = 1;
 
             _mockmembersService
@@ -116,14 +110,7 @@ namespace Tests
             _mockmembersService.Verify(ms => ms. CreateMember(newDarcie));
         }
 
-        //public void CreateMember(TeamMember nameRequest)
-        //{
-        //    using (var db = new MembersContext())
-        //    {
-        //        db.TeamNames.Add(new TeamMember { Name = nameRequest.Name });
-        //        var saveAdd = db.SaveChanges();
-        //    }
-        //}
+
     }
 }
 

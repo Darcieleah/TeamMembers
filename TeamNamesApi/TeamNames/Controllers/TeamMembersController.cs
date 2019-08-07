@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using TeamNames.Models;
@@ -22,9 +24,20 @@ namespace TeamNames.Controllers
         //POST
         //api/teammembers
         [HttpPost]
-        public void Post([FromBody] TeamMember nameRequest)
+        public IActionResult Post([FromBody] TeamMember nameRequest)
         {
             _membersService.CreateMember(nameRequest);
+
+            return CreatedAtAction("GetMember", new { id = nameRequest.Id }, nameRequest);
+            
+        }
+
+        //GET
+        //api/teammembers/1
+        [HttpGet("{id}")]
+        public TeamMember GetMember(int id)
+        {
+            return _membersService.GetTeamMember(id);
         }
 
         //GET
@@ -48,10 +61,11 @@ namespace TeamNames.Controllers
         //PATCH
         //api/teammembers/1
         [HttpPatch("{id}")]
-        public void Patch(int id, [FromBody] JsonPatchDocument<TeamMember> patch)
+        public IActionResult Patch(int id, [FromBody] JsonPatchDocument<TeamMember> patch)
         {
         
             _membersService.PartialUpdateMember(id, patch);
+            return NoContent();
 
         }
 

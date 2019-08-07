@@ -27,8 +27,18 @@ namespace TeamNames.Services
             }
 
         }
+        public TeamMember GetTeamMember(int getMemberId)
+        {
+            using (var db = new MembersContext())
+            {
+                var teamMember =  db.TeamNames
+                .Where(m => m.Id == getMemberId).FirstOrDefault();
+                return teamMember;
+            }
 
-       public void DeleteMember(int deleteMemberId)
+        }
+
+        public void DeleteMember(int deleteMemberId)
         {
             using (var db = new MembersContext())
             {
