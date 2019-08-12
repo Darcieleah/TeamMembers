@@ -33,6 +33,7 @@ function getNames(){
     request.onreadystatechange = () => {
         if (request.readyState == XMLHttpRequest.DONE) { 
             let namesResponse = JSON.parse(request.response);
+            console.log(namesResponse);
             document.getElementById('tableGoesHere').innerHTML = jsonIntoTable(namesResponse, 'table'); 
         }
     }
@@ -41,17 +42,26 @@ function getNames(){
 }
 
 //GET BY ID - display one entry
-function findName(){
+function searchId(){
+  console.log(searchIdField.value);
+  let id = searchIdField.value;
+  const data = {
+    Id: searchIdField.value
+  };
+  console.log(data);
   const request = new XMLHttpRequest();
   const url=`https://localhost:44366/api/teammembers/${id}`;
   request.open("GET", url, true);
   request.setRequestHeader("Accept", "application/json");
-  request.setRequestHeader("Content-type", "application/json"); 
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(JSON.stringify(data)); 
   request.onreadystatechange = () => {
-      
-  }
-  
-  request.send(null);
+    if (request.readyState == XMLHttpRequest.DONE) { 
+        let idResponse = JSON.parse(request.response);
+        console.log (idResponse);
+        document.getElementById('searchGoesHere').innerHTML = jsonIntoTable(idResponse, 'table'); 
+    }
+  } 
 }
 
 
@@ -105,6 +115,7 @@ function updateName(){
 
 var fr = document.getElementById("updateForm");
 var findForm = document.getElementById("searchForm");
+const searchIdField = document.getElementById("findId");
 
 function toggleUpdateInput(entityId){
   console.log(entityId);

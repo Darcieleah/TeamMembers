@@ -32,12 +32,12 @@ namespace TeamNames.Services
             }
 
         }
-        public TeamMember GetTeamMember(int getMemberId)
+        public TeamMember[] GetTeamMember(int getMemberId)
         {
             using (var db = new MembersContext())
             {
-                var teamMember =  db.TeamNames
-                .Where(m => m.Id == getMemberId).FirstOrDefault();
+                 var teamMember = db.TeamNames
+                .Where(m => m.Id == getMemberId).ToArray();
                 return teamMember;
             }
 

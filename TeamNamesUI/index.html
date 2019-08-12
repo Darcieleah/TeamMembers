@@ -41,16 +41,16 @@
     </form>
 
     <form method="GET" id="searchForm" class="hidden">
-        <p>What member would you like to find?</p>
+        <p>What member ID would you like to find?</p>
     <div>
-        <label for="name">Name:</label>
-        <input type="text" id="newname" name="Name">
+        <label for="name">ID:</label>
+        <input type="text" id="findId" name="findId">
     </div>
     <div>
-        <button class="btn" type="button" onclick=findName()>Save</button>
+        <button class="btn" type="button" onclick=searchId()>Find</button>
     </div>
 </form>
-
+    <div id="searchGoesHere"></div>
     <div id="tableGoesHere"></div>
 </body>
 <script src="site.js" type="text/javascript"></script>

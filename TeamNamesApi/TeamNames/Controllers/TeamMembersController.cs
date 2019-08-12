@@ -34,10 +34,10 @@ namespace TeamNames.Controllers
             
         }
 
-        //GET
+        //GET BY ID
         //api/teammembers/1
         [HttpGet("{id}")]
-        public TeamMember GetMember(int id)
+        public TeamMember[] GetMember(int id)
         {
             return _membersService.GetTeamMember(id);
         }

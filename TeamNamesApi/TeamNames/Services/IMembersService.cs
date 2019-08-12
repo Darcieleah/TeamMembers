@@ -13,6 +13,6 @@ namespace TeamNames.Services
         void DeleteMembersBulk(int[] deleteBulkMemberIds);
         void PartialUpdateMember(int id, JsonPatchDocument<TeamMember> patch);
         IEnumerable<TeamMember> ViewAllMembers();
-        TeamMember GetTeamMember(int getMemberId);
+        TeamMember[] GetTeamMember(int getMemberId);
     }
 }
