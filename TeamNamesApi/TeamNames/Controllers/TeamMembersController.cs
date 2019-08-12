@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using TeamNames.Models;
@@ -24,11 +26,11 @@ namespace TeamNames.Controllers
         //POST
         //api/teammembers
         [HttpPost]
-        public IActionResult Post([FromBody] TeamMember nameRequest)
+        public CreatedResult Post([FromBody] TeamMember nameRequest)
         {
-            _membersService.CreateMember(nameRequest);
-
-            return CreatedAtAction("GetMember", new { id = nameRequest.Id }, nameRequest);
+           var newTeamMember = _membersService.CreateMember(nameRequest);
+            Console.WriteLine(newTeamMember);
+            return Created("GetMember", new { id = newTeamMember.Result.Id });
             
         }
 

@@ -12,6 +12,7 @@
     <p class="page-title">Team Members</p>
     <p>What would you like to do?</p>
     <button class="btn" type="button" onclick=toggleAddInput()>Add a Member</button>
+    <button class="btn" type="button" onclick=toggleFindInput()>Find a Member</button>
     <button class="btn" type="button" onclick=getNames()>View All Members</button>
     <button class="btn hidden" type="button" id="deleteButton" onclick=deleteSelected()> Delete Selected</button>
 
@@ -38,6 +39,17 @@
             <button class="btn" type="button" onclick=updateName()>Save</button>
         </div>
     </form>
+
+    <form method="GET" id="searchForm" class="hidden">
+        <p>What member would you like to find?</p>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="newname" name="Name">
+    </div>
+    <div>
+        <button class="btn" type="button" onclick=findName()>Save</button>
+    </div>
+</form>
 
     <div id="tableGoesHere"></div>
 </body>

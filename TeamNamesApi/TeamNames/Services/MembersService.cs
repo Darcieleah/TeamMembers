@@ -11,13 +11,18 @@ namespace TeamNames.Services
 {
     public class MembersService : IMembersService
     {
-        public void CreateMember(TeamMember nameRequest)
+        public async Task<TeamMember>CreateMember(TeamMember nameRequest)
         {
             using (var db = new MembersContext())
             {
-                db.TeamNames.Add(new TeamMember { Name = nameRequest.Name});
-                var saveAdd = db.SaveChanges();
+                var newTeamMember = new TeamMember { Name = nameRequest.Name };
+                db.TeamNames.Add(newTeamMember);
+
+                await db.SaveChangesAsync();
+                //correct number returned here for ID
+                return newTeamMember;
             }
+            
         }
         public IEnumerable <TeamMember> ViewAllMembers()
         {

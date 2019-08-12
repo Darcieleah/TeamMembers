@@ -40,6 +40,21 @@ function getNames(){
     request.send(null);
 }
 
+//GET BY ID - display one entry
+function findName(){
+  const request = new XMLHttpRequest();
+  const url=`https://localhost:44366/api/teammembers/${id}`;
+  request.open("GET", url, true);
+  request.setRequestHeader("Accept", "application/json");
+  request.setRequestHeader("Content-type", "application/json"); 
+  request.onreadystatechange = () => {
+      
+  }
+  
+  request.send(null);
+}
+
+
 //DELETE METHOD - delete name by ID
 function deleteName(id){
   const request = new XMLHttpRequest();
@@ -89,6 +104,7 @@ function updateName(){
 }
 
 var fr = document.getElementById("updateForm");
+var findForm = document.getElementById("searchForm");
 
 function toggleUpdateInput(entityId){
   console.log(entityId);
@@ -105,6 +121,14 @@ function toggleAddInput(){
     form.classList.remove('hidden');
   } else {
     form.classList.add('hidden');
+  }
+}
+
+function toggleFindInput(){
+  if (findForm.classList.contains('hidden')) {
+    findForm.classList.remove('hidden');
+  } else {
+    findForm.classList.add('hidden');
   }
 }
 
