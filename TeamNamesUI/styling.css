@@ -1,32 +1,46 @@
 html {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Josefin Sans', sans-serif;
   box-sizing: border-box;
+  background-color: #B8B0BC;
+  max-width: 500px;
+  margin: auto;
 }
 *,*:before,*:after{
   box-sizing: inherit;
 }
+
+
 table {
     border-collapse: collapse;
+    margin-top: 10px
   }
-  th {
-    padding-top: 1em; 
+
+th {
+    padding: 0.5em; 
     text-align: left;
+    color: white;
     font-weight: 700;
+    background-color: #8D28A4;
+}
     
-  }
+    table first of {
+      border-radius: 5px;
+    }
+    
   td {
-    padding: 0.5em;  
-    border: 2px solid #000000;
-    
-    
+    padding: 0.5em;   
+       
   }
   button {
     margin-right: 5px;
   }
-  tr:nth-child(2n+2) {
-    background-color: #8D28A4;
-    color: white;
+  tr {
+    background-color: #FFFF;   
   }
+  tr:nth-child(even) {
+    background-color: #ECECEC;   
+  }
+
 .hidden{
     display: none;
   }
@@ -45,7 +59,9 @@ form label {
   cursor: pointer;
   padding: 5px 10px;
   transition-duration: 0.3s;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  
   
 }
 .btn:hover {
@@ -54,5 +70,5 @@ form label {
 }
 .page-title {
   font-weight: 700;
-  font-size: 20;
+  font-size: 30px;
 }
