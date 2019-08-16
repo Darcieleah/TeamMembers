@@ -14,5 +14,6 @@ namespace TeamNames.Services
         void PartialUpdateMember(int id, JsonPatchDocument<TeamMember> patch);
         IEnumerable<TeamMember> ViewAllMembers();
         TeamMember[] GetTeamMember(int getMemberId);
+        TeamMember[] GetByName(string getMemberName);
     }
 }

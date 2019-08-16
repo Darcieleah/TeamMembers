@@ -43,6 +43,17 @@ namespace TeamNames.Services
 
         }
 
+        public TeamMember[] GetByName (string getMemberName)
+        {
+            using (var db = new MembersContext())
+            {
+                var teamMembers = db.TeamNames
+               .Where(m => m.Name.Contains(getMemberName)).ToArray();
+                return teamMembers;
+            }
+
+        }
+
         public void DeleteMember(int deleteMemberId)
         {
             using (var db = new MembersContext())

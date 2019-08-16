@@ -1,6 +1,4 @@
 
-const form = document.getElementById('nameForm');
-const nameField = document.getElementById('name');
 
 //POST METHOD - submit a new team member name
 function postName(){
@@ -33,7 +31,6 @@ function getNames(){
     request.onreadystatechange = () => {
         if (request.readyState == XMLHttpRequest.DONE) { 
             let namesResponse = JSON.parse(request.response);
-            console.log(namesResponse);
             document.getElementById('tableGoesHere').innerHTML = jsonIntoTable(namesResponse, 'table'); 
         }
     }
@@ -43,12 +40,10 @@ function getNames(){
 
 //GET BY ID - display one entry
 function searchId(){
-  console.log(searchIdField.value);
   let id = searchIdField.value;
   const data = {
     Id: searchIdField.value
   };
-  console.log(data);
   const request = new XMLHttpRequest();
   const url=`https://localhost:44366/api/teammembers/${id}`;
   request.open("GET", url, true);
@@ -58,9 +53,30 @@ function searchId(){
   request.onreadystatechange = () => {
     if (request.readyState == XMLHttpRequest.DONE) { 
         let idResponse = JSON.parse(request.response);
-        console.log (idResponse);
         document.getElementById('searchGoesHere').innerHTML = jsonIntoTable(idResponse, 'table'); 
     }
+    toggleFindByIDInput()
+  } 
+}
+
+//GET BY NAME - display multiple entries
+function searchName(){
+  let name = searchNameField.value;
+  const data = {
+    Name: searchNameField.value
+  };
+  const request = new XMLHttpRequest();
+  const url=`https://localhost:44366/api/teammembers/names/${name}`;
+  request.open("GET", url, true);
+  request.setRequestHeader("Accept", "application/json");
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(JSON.stringify(data)); 
+  request.onreadystatechange = () => {
+    if (request.readyState == XMLHttpRequest.DONE) { 
+        let nameResponse = JSON.parse(request.response);
+        document.getElementById('searchGoesHere').innerHTML = jsonIntoTable(nameResponse, 'table'); 
+    }
+    toggleFindByNameInput()
   } 
 }
 
@@ -90,14 +106,13 @@ const newNameField = document.getElementById('newname');
 
 //PATCH METHOD - amend name by ID
 function updateName(){
-  id = fr.getAttribute('data-row-id');
+  id = updateForm.getAttribute('data-row-id');
   const newName = newNameField.value;
   const data = [{
     "op": "add",
     "path": "/name",
     "value": newName
   }];
-  console.log(data);
   const request = new XMLHttpRequest();
   const url=`https://localhost:44366/api/teammembers/${id}`;
   request.open("PATCH", url, true);
@@ -107,25 +122,26 @@ function updateName(){
   request.onreadystatechange = function() {
     if (request.readyState == XMLHttpRequest.DONE) {
       document.getElementById("updateForm").reset();
-      fr.classList.add('hidden');
+      updateForm.classList.add('hidden');
         getNames();
     } 
   }
 }
 
-var fr = document.getElementById("updateForm");
-var findForm = document.getElementById("searchForm");
-const searchIdField = document.getElementById("findId");
+const updateForm = document.getElementById("updateForm");
 
 function toggleUpdateInput(entityId){
-  console.log(entityId);
-  if (fr.classList.contains('hidden')) {
-    fr.classList.remove('hidden');
+  if (updateForm.classList.contains('hidden')) {
+    updateForm.classList.remove('hidden');
   } else {
-    fr.classList.add('hidden');
+    updateForm.classList.add('hidden');
   }
-  fr.setAttribute("data-row-id", entityId);
+  updateForm.setAttribute("data-row-id", entityId);
 }
+
+const addForm = document.getElementById('addForm');
+const nameField = document.getElementById('name');
+
 
 function toggleAddInput(){
   if (form.classList.contains('hidden')) {
@@ -135,11 +151,25 @@ function toggleAddInput(){
   }
 }
 
-function toggleFindInput(){
-  if (findForm.classList.contains('hidden')) {
-    findForm.classList.remove('hidden');
+const searchIdForm = document.getElementById("searchIdForm");
+const searchIdField = document.getElementById("findId");
+
+function toggleFindByIDInput(){
+  if (searchIdForm.classList.contains('hidden')) {
+    searchIdForm.classList.remove('hidden');
   } else {
-    findForm.classList.add('hidden');
+    searchIdForm.classList.add('hidden');
+  }
+}
+
+const searchNameForm = document.getElementById("searchNameForm");
+const searchNameField = document.getElementById("findName");
+
+function toggleFindByNameInput(){
+    if (searchNameForm.classList.contains('hidden')) {
+    searchNameForm.classList.remove('hidden');
+  } else {
+    searchNameForm.classList.add('hidden');
   }
 }
 
@@ -152,7 +182,6 @@ function editMembersToDelete(entityId) {
   } else {
     membersToDelete.splice(index,1);  
   }
-  console.log(membersToDelete);
   toggleDeleteSelected();
 }
 var deleteBtn = document.getElementById("deleteButton");

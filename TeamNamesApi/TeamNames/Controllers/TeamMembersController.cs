@@ -42,6 +42,14 @@ namespace TeamNames.Controllers
             return _membersService.GetTeamMember(id);
         }
 
+        //GET BY NAME
+        //api/teammembers
+        [HttpGet ("names/{searchName}")]
+        public TeamMember[] SearchName(string searchName)
+        {
+            return _membersService.GetByName(searchName);
+        }
+
         //GET
         //api/teammembers
         [HttpGet]

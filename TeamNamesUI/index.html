@@ -12,11 +12,12 @@
     <p class="page-title">Team Members</p>
     <p>What would you like to do?</p>
     <button class="btn" type="button" onclick=toggleAddInput()>Add a Member</button>
-    <button class="btn" type="button" onclick=toggleFindInput()>Find a Member</button>
+    <button class="btn" type="button" onclick=toggleFindByIDInput()>Find a Member by ID</button>
+    <button class="btn" type="button" onclick=toggleFindByNameInput()>Find a Member by Name</button>
     <button class="btn" type="button" onclick=getNames()>View All Members</button>
     <button class="btn hidden" type="button" id="deleteButton" onclick=deleteSelected()> Delete Selected</button>
 
-    <form method="POST" id="nameForm" class="hidden">
+    <form method="POST" id="addForm" class="hidden">
             <p>Please add new team member</p>
         <div>
             <label for="name">Name:</label>
@@ -32,7 +33,7 @@
     <form method="PATCH" id="updateForm" class="hidden">
             <p>Please enter a new name for this team member</p>
         <div>
-            <label for="name">Name:</label>
+            <label for="newname">Name:</label>
             <input type="text" id="newname" name="Name">
         </div>
         <div>
@@ -40,14 +41,25 @@
         </div>
     </form>
 
-    <form method="GET" id="searchForm" class="hidden">
+    <form method="GET" id="searchIdForm" class="hidden">
         <p>What member ID would you like to find?</p>
     <div>
-        <label for="name">ID:</label>
+        <label for="findId">ID:</label>
         <input type="text" id="findId" name="findId">
     </div>
     <div>
         <button class="btn" type="button" onclick=searchId()>Find</button>
+    </div>
+</form>
+
+    <form method="GET" id="searchNameForm" class="hidden">
+        <p>What member would you like to find?</p>
+    <div>
+        <label for="findName">Name:</label>
+        <input type="text" id="findName" name="findName">
+    </div>
+    <div>
+        <button class="btn" type="button" onclick=searchName()>Find</button>
     </div>
 </form>
     <div id="searchGoesHere"></div>
