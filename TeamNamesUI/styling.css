@@ -1,41 +1,50 @@
 html {
-  font-family: 'Josefin Sans', sans-serif;
+  height:100%;
+  font-family: 'Nanum Gothic', sans-serif;
   box-sizing: border-box;
-  background-color: #B8B0BC;
-  max-width: 500px;
-  margin: auto;
+  background-color:rgb(53, 15, 61);
 }
 *,*:before,*:after{
   box-sizing: inherit;
 }
-
-
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height:100%;
+  color: white;
+}
 table {
     border-collapse: collapse;
-    margin-top: 10px
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 500px;
   }
 
 th {
-    padding: 0.5em; 
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
     text-align: left;
     color: white;
-    font-weight: 700;
     background-color: #8D28A4;
+    
 }
     
-    table first of {
-      border-radius: 5px;
-    }
-    
   td {
-    padding: 0.5em;   
-       
+    padding: 0.5em;
+    padding-left: 20px; 
+    color: black;
+    
   }
   button {
     margin-right: 5px;
   }
   tr {
-    background-color: #FFFF;   
+    background-color: #FFFF;
+    width: 100%;   
   }
   tr:nth-child(even) {
     background-color: #ECECEC;   
@@ -52,23 +61,31 @@ form label {
   display: inline
 }
 .btn {
-  background-color: rgb(247, 222, 253);
+  background-color: #ECECEC;
   color: black;;
-  border: 2px solid #8D28A4;
+  border: 2px solid #ECECEC;
   border-radius: 3px;
   cursor: pointer;
   padding: 5px 10px;
   transition-duration: 0.3s;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 600;
-  
+  font-family: 'Nanum Gothic', sans-serif;
   
 }
+.table-btn{
+  
+  background-color: rgb(247, 222, 253);
+  border: 2px solid rgb(247, 222, 253);
+}
+.menu-btn{
+ margin-bottom: 2px;
+}
 .btn:hover {
-  background-color: #8D28A4;
+  background-color: rgb(141, 40, 164);
   color: white;
 }
 .page-title {
-  font-weight: 700;
-  font-size: 30px;
+  font-weight: 800;
+  font-size: 50px;
+
 }
+

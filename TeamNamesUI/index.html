@@ -5,17 +5,17 @@
     <meta charset="utf-8">
     <title>Team Names</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,800&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <p class="page-title">Team Members</p>
-    <p>What would you like to do?</p>
-    <button class="btn" type="button" onclick=toggleAddInput()>Add a Member</button>
-    <button class="btn" type="button" onclick=toggleFindByIDInput()>Find a Member by ID</button>
-    <button class="btn" type="button" onclick=toggleFindByNameInput()>Find a Member by Name</button>
-    <button class="btn" type="button" onclick=getNames()>View All Members</button>
-    <button class="btn hidden" type="button" id="deleteButton" onclick=deleteSelected()> Delete Selected</button>
+    <p class="page-intro">What would you like to do?</p>
+    <button class="btn menu-btn" type="button" onclick=toggleAddInput()>Add a Member</button>
+    <button class="btn menu-btn" type="button" onclick=toggleFindByIDInput()>Find a Member by ID</button>
+    <button class="btn menu-btn" type="button" onclick=toggleFindByNameInput()>Find a Member by Name</button>
+    <button class="btn menu-btn" type="button" onclick=getNames()>View All Members</button>
+    <button class="hidden btn menu-btn" type="button" id="deleteButton" onclick=deleteSelected()> Delete Selected</button>
 
     <form method="POST" id="addForm" class="hidden">
             <p>Please add new team member</p>
@@ -62,8 +62,9 @@
         <button class="btn" type="button" onclick=searchName()>Find</button>
     </div>
 </form>
+
     <div id="searchGoesHere"></div>
-    <div id="tableGoesHere"></div>
+    <div class ="wraptables" id="tableGoesHere"></div>
 </body>
 <script src="site.js" type="text/javascript"></script>
 

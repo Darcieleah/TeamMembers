@@ -144,10 +144,10 @@ const nameField = document.getElementById('name');
 
 
 function toggleAddInput(){
-  if (form.classList.contains('hidden')) {
-    form.classList.remove('hidden');
+  if (addForm.classList.contains('hidden')) {
+    addForm.classList.remove('hidden');
   } else {
-    form.classList.add('hidden');
+    addForm.classList.add('hidden');
   }
 }
 
@@ -221,7 +221,7 @@ function jsonIntoTable(json, classes) {
         bodyRows += '<td>' + row[colName] + '</td>';
       })
   
-      bodyRows += `<td><button class="btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><input type="checkbox" class="myCheck" onclick="editMembersToDelete(${row.id})"></td></tr>`;
+      bodyRows += `<td><button class="btn table-btn" type="button" onclick = deleteName(${row.id})>Delete <i class="fa fa-trash-o" aria-hidden="true"></i></button><button class="btn table-btn" type="button" onclick = toggleUpdateInput(${row.id})>Edit <i class="fa fa-pencil-square-o" aria-hidden="true"></i></button><input type="checkbox" class="myCheck" onclick="editMembersToDelete(${row.id})"></td></tr>`;
     });
   
     return '<table class="' +
